@@ -1,0 +1,7 @@
+nodes:
+  - task: self::ai-rename
+    title: "AI Rename #1"
+    node_id: ai-rename#1
+    inputs_from:
+      - handle: input_file
+        value: /oomol-driver/oomol-storage/images/out

@@ -1,0 +1,18 @@
+{
+  "viewport": {
+    "x": -299,
+    "y": -25.5,
+    "zoom": 1
+  },
+  "nodes": {
+    "ai-rename#1": {
+      "contentWidth": 624.328125,
+      "rfNode": {
+        "position": {
+          "x": 390,
+          "y": 225
+        }
+      }
+    }
+  }
+}
