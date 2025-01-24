@@ -26,12 +26,11 @@ const renameFiles = async (fileList: string[], pre_name: string, end_name: strin
   const newFileNames = [];
   try {
     for (const oldFilePath of fileList) {
-      const dirName = path.dirname(oldFilePath); // 获取文件所在目录
-      const fileName = path.basename(oldFilePath, path.extname(oldFilePath)); // 获取文件名（不含扩展名）
-      const extName = path.extname(oldFilePath); // 获取文件扩展名
-      const newFileName = `${pre_name}${fileName}${end_name}${extName}`; // 新文件名（添加前缀和后缀）
-      const newFilePath = path.join(dirName, newFileName); // 新文件路径
-      // 重命名文件
+      const dirName = path.dirname(oldFilePath);
+      const fileName = path.basename(oldFilePath, path.extname(oldFilePath));
+      const extName = path.extname(oldFilePath);
+      const newFileName = `${pre_name}${fileName}${end_name}${extName}`;
+      const newFilePath = path.join(dirName, newFileName);
       await fs.rename(oldFilePath, newFilePath);
       console.log(`Renamed ${oldFilePath} to ${newFilePath}`);
       newFileNames.push(newFilePath);
