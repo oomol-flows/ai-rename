@@ -5,10 +5,10 @@ const execa = promisify(exec);
 
 
 type Inputs = {
-  input_file: string;
+  dir: string;
 }
 type Outputs = {
-  output: string;
+  dir: string;
 }
 
 export default async function(
@@ -16,9 +16,9 @@ export default async function(
   context: Context<Inputs, Outputs>
 ): Promise<Outputs> {
   const {apiKey, baseUrl} = context.OOMOL_LLM_ENV;
-  const {input_file} = params;
-  const res =  await execa(`npx ai-renamer ${input_file} --provider=openai --model=Qwen/Qwen2-VL-72B-Instruct --base-url=${baseUrl} --api-key=${apiKey}`);
+  const {dir} = params;
+  const res =  await execa(`npx ai-renamer ${dir} --provider=openai --model=Qwen/Qwen2-VL-72B-Instruct --base-url=${baseUrl} --api-key=${apiKey}`);
   console.log(res.stdout)
   console.log(res.stderr)
-  return { output: input_file };
+  return { dir: dir };
 };

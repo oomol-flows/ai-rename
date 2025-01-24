@@ -3,5 +3,5 @@ nodes:
     title: "AI Rename #1"
     node_id: ai-rename#1
     inputs_from:
-      - handle: input_file
-        value: /oomol-driver/oomol-storage/images/out
+      - handle: dir
+        value: /oomol-driver/oomol-storage/images

@@ -1,11 +1,11 @@
 inputs_def:
-  - handle: input_file
+  - handle: dir
     description: Input
     json_schema:
       type: string
       ui:widget: dir
 outputs_def:
-  - handle: output
+  - handle: dir
     description: Output
     json_schema:
       type: string
