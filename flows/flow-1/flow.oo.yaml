@@ -1,7 +1,35 @@
 nodes:
-  - task: self::ai-rename
-    title: "AI Rename #1"
-    node_id: ai-rename#1
+  - task: oomol-file::copy_dir
+    title: "Copy dir #1"
+    node_id: copy_dir#1
     inputs_from:
-      - handle: dir
+      - handle: source_dir
         value: /oomol-driver/oomol-storage/images
+      - handle: destination_dir
+        value: /oomol-driver/oomol-storage/process
+  - task: tiny-png::tiny-pngs
+    title: "Tiny PNGS #1"
+    node_id: tiny-pngs#1
+    inputs_from:
+      - handle: images
+        from_node:
+          - node_id: dir_to_path_list#1
+            output_handle: files
+      - handle: key
+        value: ${{OO_SECRET:Custom,tiny-png,api-key}}
+      - handle: save_address
+        value: /oomol-driver/oomol-storage/tiny
+  - task: oomol-file::dir_to_path_list
+    title: "Read folder #1"
+    node_id: dir_to_path_list#1
+    inputs_from:
+      - handle: folder
+        from_node:
+          - node_id: copy_dir#1
+            output_handle: destination_dir
+      - handle: sort
+        value: false
+      - handle: traverse
+        value: false
+      - handle: absolute_path
+        value: true

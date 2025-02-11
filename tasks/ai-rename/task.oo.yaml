@@ -4,12 +4,28 @@ inputs_def:
     json_schema:
       type: string
       ui:widget: dir
+  - handle: model
+    json_schema:
+      enum:
+        - " deepseek-ai/deepseek-vl2"
+        - Qwen/Qwen2-VL-72B-Instruct
+      ui:options:
+        labels:
+          - " deepseek-ai/deepseek-vl2"
+          - Qwen/Qwen2-VL-72B-Instruct
+    value: " deepseek-ai/deepseek-vl2"
+    nullable: true
 outputs_def:
   - handle: dir
     description: Output
     json_schema:
       type: string
       ui:widget: dir
+  - handle: images
+    json_schema:
+      type: array
+      items:
+        type: string
 ui:
   default_width: 450
 executor:
