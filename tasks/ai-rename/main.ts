@@ -15,10 +15,11 @@ type Outputs = {
   dir: string;
   images: string[];
 };
-// 支持的图片文件扩展名
+
+// Supported image file extensions
 const IMAGE_EXTENSIONS = new Set([".jpg", ".jpeg", ".png", ".gif", ".bmp", ".webp"]);
 
-// 检查文件是否为图片
+// Check if the file is an image
 function isImageFile(filename: string): boolean {
   const ext = path.extname(filename).toLowerCase();
   return IMAGE_EXTENSIONS.has(ext);
@@ -29,18 +30,18 @@ export default async function(
   context: Context<Inputs, Outputs>
 ): Promise<Outputs> {
   const { apiKey, baseUrl } = context.OOMOL_LLM_ENV;
-  const { dir, model = "deepseek-ai/deepseek-vl2" } = params;
+  const { dir, model = "oomol-VL" } = params;
 
   try {
     await execa(`npx ai-renamer ${dir} --provider=openai --model=${model} --base-url=${baseUrl} --api-key=${apiKey}`);
 
     const files = await fs.readdir(dir);
-    // 过滤出图片文件
+    // Filter out image files
     const imageFiles = files.filter(file => isImageFile(file));
 
     return { dir, images: imageFiles };
   } catch (error) {
-    // 错误处理
+    // Error handling
     console.error("Error occurred:", error);
     throw new Error("Failed to rename files or read directory");
   }

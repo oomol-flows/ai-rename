@@ -7,13 +7,11 @@ inputs_def:
   - handle: model
     json_schema:
       enum:
-        - " deepseek-ai/deepseek-vl2"
-        - Qwen/Qwen2-VL-72B-Instruct
+        - oomol-VL
       ui:options:
         labels:
-          - " deepseek-ai/deepseek-vl2"
-          - Qwen/Qwen2-VL-72B-Instruct
-    value: " deepseek-ai/deepseek-vl2"
+          - oomol-VL
+    value: oomol-VL
     nullable: true
 outputs_def:
   - handle: dir
