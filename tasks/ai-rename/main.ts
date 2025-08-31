@@ -8,7 +8,6 @@ const execa = promisify(exec);
 
 type Inputs = {
   dir: string;
-  model: string | null;
 };
 
 type Outputs = {
@@ -30,10 +29,10 @@ export default async function(
   context: Context<Inputs, Outputs>
 ): Promise<Outputs> {
   const { apiKey, baseUrl } = context.OOMOL_LLM_ENV;
-  const { dir, model = "oomol-VL" } = params;
+  const { dir } = params;
 
   try {
-    await execa(`npx ai-renamer ${dir} --provider=openai --model=${model} --base-url=${baseUrl} --api-key=${apiKey}`);
+    await execa(`npx ai-renamer ${dir} --provider=openai --model=${"oomol-VL"} --base-url=${baseUrl} --api-key=${apiKey}`);
 
     const files = await fs.readdir(dir);
     // Filter out image files

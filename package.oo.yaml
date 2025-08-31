@@ -1,4 +1,4 @@
-version: 0.0.8
+version: 0.0.11
 scripts:
   # Script executed when the container is first loaded
   # eg: bootstrap: pip install pandas
@@ -10,6 +10,6 @@ name: ai-rename
 description: Intelligently rename files by their contents
 repository: https://github.com/oomol-flows/ai-rename
 displayName: AI Rename
-releaseNotes: fix modal bug and image type bug
+releaseNotes: add ci
 dependencies:
   oomol-file: 0.0.9
