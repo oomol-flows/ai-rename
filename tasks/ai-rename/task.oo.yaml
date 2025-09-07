@@ -32,4 +32,4 @@ executor:
     spawn: false
     entry: main.ts
 title: AI Rename
-icon: ":fa6-solid:square-pen:"
+icon: ":carbon:edit:"
