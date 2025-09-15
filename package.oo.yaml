@@ -1,4 +1,4 @@
-version: 0.0.12
+version: 0.0.13
 scripts:
   # Script executed when the container is first loaded
   # eg: bootstrap: pip install pandas
@@ -7,9 +7,9 @@ scripts:
     pip install -r requirements.txt
 icon: https://package-assets.oomol.com/packages/ai-rename/0.0.1/files/package/icon.png
 name: ai-rename
-description: Intelligently rename files by their contents
+description: "%ai-rename-is-an-intelligent-oomol-workflow-that-automatically-re%"
 repository: https://github.com/oomol-flows/ai-rename
-displayName: AI Rename
+displayName: "%ai-rename%"
 releaseNotes: add layer
 dependencies:
   oomol-file: 0.0.9

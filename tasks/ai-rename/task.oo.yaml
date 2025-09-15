@@ -1,10 +1,11 @@
 inputs_def:
   - handle: dir
-    description: Input
+    description: "Directory containing files to be renamed based on their content"
     json_schema:
       type: string
       ui:widget: dir
   - handle: model
+    description: "AI model to use for content analysis and name generation"
     json_schema:
       enum:
         - oomol-VL
@@ -15,11 +16,12 @@ inputs_def:
     nullable: true
 outputs_def:
   - handle: dir
-    description: Output
+    description: "Directory path where renamed files are located"
     json_schema:
       type: string
       ui:widget: dir
   - handle: images
+    description: "List of renamed image file paths with their new content-based names"
     json_schema:
       type: array
       items:
@@ -33,3 +35,6 @@ executor:
     entry: main.ts
 title: AI Rename
 icon: ":carbon:edit:"
+description: "Intelligently renames files based on their content using advanced
+  multimodal AI models. Analyzes images, documents, and other files to generate
+  meaningful, descriptive names that reflect their actual content."
